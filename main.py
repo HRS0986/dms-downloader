@@ -58,14 +58,10 @@ def get_file_list() -> list[str]:
         raise Exception("Error getting file list")
 
 
-def send_notification(message: str, channel: str = 'my_channel'):
-    redis_client.publish(channel, message)
-
-
-def start_download():
+def start_download(save_path: str):
     file_list = get_file_list()
     for file in file_list:
         print(file)
-        download_file(DMS_URL + file, file)
+        download_file(DMS_URL + file, save_path + file)
         remove_file(DMS_URL + file)
-    send_notification("DOWNLOAD FINISHED", CHANNEL)
+    redis_client.publish(CHANNEL, "START DOWNLOAD TO DMS")

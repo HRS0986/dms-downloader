@@ -1,5 +1,0 @@
-requests==2.32.3
-python-dotenv==1.1.0
-redis==5.2.1
-xmltodict==0.14.2
-tqdm==4.67.1
