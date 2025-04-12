@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMS FitGirl Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="mb-4 mt-3 text-center">
+            <h1>DMS FitGirl Downloader</h1>
+            <p class="lead">Just share the FitGirl link with me. I'll take care of the rest.</p>
+        </header>
+
+        <div class="row mb-4">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Scrape Links</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="scrapeForm" class="mb-3">
+                            <div class="mb-3">
+                                <label for="url" class="form-label">URL to scrape</label>
+                                <input type="url" class="form-control" id="url" required placeholder="https://example.com/page-with-links">
+                            </div>
+                            <div class="mb-3">
+                                <label for="savePath" class="form-label">Save path</label>
+                                <input type="text" class="form-control" id="savePath" required placeholder="C:/Downloads/">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Scrape Links</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2>Scraped Links</h2>
+                        <button id="startDownloadBtn" class="btn btn-success" disabled>Start Download</button>
+                    </div>
+                    <div class="card-body">
+                        <div id="linksContainer" class="mb-3">
+                            <p class="text-muted text-center">No links scraped yet. Use the form above to scrape links.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2>DMS Files</h2>
+                        <button id="continueDownloadBtn" class="btn btn-info">Continue Download</button>
+                    </div>
+                    <div class="card-body">
+                        <div id="statusMessage" class="alert alert-info d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>DMS Downloader © 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+</body>
+</html>
